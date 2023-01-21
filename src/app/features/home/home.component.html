@@ -1,0 +1,18 @@
+<div class="Layout" style="justify-content: space-around;">
+
+  <mat-card class="m10">
+    <h3 class="lightblue">Clients informations</h3>
+    <mb-table
+    [tableData]="tableData"
+    [tableColumns]="tableDataColumns"
+    [isFilterable]="true"
+    [isPageable]="true"
+    [isSortable]="true"
+    [paginationSizes]="[5, 10, 15]"
+    [defaultPageSize]="10"
+  >
+  </mb-table>
+  </mat-card>
+
+  
+</div>

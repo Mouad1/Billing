@@ -1,0 +1,21 @@
+// remove no sense elments to print at the bottom like nav and forms >
+// should be set to display none.
+body {
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+.no-print {
+  display: none !important;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: justify;
+  margin: 0 auto;
+}
+
+.mat-tab-header {
+  display: none !important;
+}

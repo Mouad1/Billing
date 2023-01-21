@@ -1,0 +1,82 @@
+<div class="layout">
+   <div class="col-md-12">
+      <div class="invoice">
+         <!-- begin invoice-company -->
+         <div class="invoice-company text-inverse f-w-600 m-b-10">
+            <span class="pull-right hidden-print">
+               <a href="javascript:;" onclick="window.print()" class="btn btn-sm btn-white m-b-10 p-l-5 no-print">
+                  <i class="fa fa-print t-plus-1 fa-fw fa-lg"></i> Print</a>
+            </span>
+         </div>
+         <br>
+         <!-- end invoice-company -->
+         <!-- begin invoice-header -->
+         <div class="invoice-header" class="m-t-20">
+
+            <div class="invoice-date">
+               <div class="invoice-detail">
+                  Devis #0000123DSS<br>
+                  <!-- Services Product -->
+               </div>
+               <div class="date text-inverse m-t-5">{{now | date : 'MMM d, y'}}</div>
+            </div>
+
+            <div class="invoice-from">
+               <small>De</small>
+               <address class="m-t-5 m-b-5">
+                  <strong class="text-inverse">M. DRHOURHI</strong><br>
+                  1 Allée jacqueline de Romilly<br>
+                  Tanger, 90010<br>
+                  Tel: (212) 556789000<br>
+               </address>
+            </div>
+
+
+            <div class="invoice-to">
+               <small>A</small>
+               <address class="m-t-5 m-b-5">
+                  <strong class="text-inverse">Renault</strong><br>
+                  21 CEDEX BV Moulay Ismail<br>
+                  Tanger, 90000<br>
+                  Phone: (212)677889900<br>
+               </address>
+            </div>
+
+         </div>
+
+         <br> <br><br>
+         <div class="object pl10" fxLayout="row">
+            <p fxFlex>Object: </p>
+            <p>ARINAS POILO</p>
+
+         </div>
+         <br>
+         <mb-table [tableData]="tableData" [tableColumns]="tableDataColumns">
+         </mb-table>
+         <!-- </mat-card> -->
+
+
+
+
+
+
+         <div class="footer">
+            <div class="invoice-note">
+               * NB1<br>
+               * Paiement sous 30 jours ouvrables<br>
+               * Si vous avez des questions concernat le devis,merci de contacter [Email]
+            </div>
+            <br>:
+            <p class="text-center m-b-5 f-w-600">
+               Merci pour votre confiance
+            </p>
+            <p class="text-center">
+               <span class="m-r-10"><i class="fa fa-fw fa-lg fa-globe"></i> DRHOURHI.com</span>
+               <span class="m-r-10"><i class="fa fa-fw fa-lg fa-phone-volume"></i> T:01618192302</span>
+               <span class="m-r-10"><i class="fa fa-fw fa-lg fa-envelope"></i> drhourhi@gmail.com</span>
+            </p>
+         </div>
+         <!-- end invoice-footer -->
+      </div>
+   </div>
+</div>

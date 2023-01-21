@@ -1,0 +1,54 @@
+@import "abstracts/variables", "abstracts/mixins", "abstracts/placeholders";
+
+@import "core/normalize",
+  // 'core/typography',
+  // 'core/animation',
+  // 'core/header.scss',
+  // 'core/footer.scss',
+  "core/layout.scss",
+  "core/theme.scss";
+// 'core/flexbox.scss';
+// 'core/theme-dark.scss';
+
+@import "blocks/button.scss";
+// 'blocks/card.scss',
+// 'blocks/checkbox.scss',
+// 'blocks/form.scss',
+// 'blocks/icon.scss',
+// 'blocks/modal.scss',
+// 'blocks/select.scss';
+
+@import "overrides/material.scss";
+
+@import "responsive/base";
+
+// DESKTOP FIRST STRATEGY > max-width queries in general.
+// ON MOBILE
+@media (max-width: $xs) {
+  @import "responsive/375up";
+}
+
+// SMALL SCREENS VIEWING
+@media only screen and (min-width: 480px) {
+  @import "responsive/480up";
+}
+
+// LAPTOPS VIEWING
+@media only screen and (min-width: 992px) {
+  @import "responsive/992up";
+}
+
+// LARGE VIEWING SIZE
+@media only screen and (min-width: 1440px) {
+  @import "responsive/1440up";
+}
+
+//PRINT STYLESHEET
+@media print {
+  @import "responsive/print";
+}
+
+body {
+  min-height: 100%;
+  font-family: Roboto, "Helvetica Neue", sans-serif !important;
+}

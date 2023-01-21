@@ -1,0 +1,34 @@
+ // sypel state checkbox
+ .spl-checkbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 20px;
+    height: 20px;
+
+    margin-right: 20px;
+    border: 1px solid #cbcbcb ;
+
+    border-radius: 3px;
+
+    &.filling {
+      // width: 10px;
+      // height: 10px;
+      // border-radius: 1px;
+      &.green{
+        background: #009866;
+      }
+      &.red{
+        background: #d03617;
+      }
+      &.orange{
+        background: #FFC328;
+      }
+    }
+
+    &.filling:hover {
+      background: gray;
+      cursor: pointer;
+    }
+  }

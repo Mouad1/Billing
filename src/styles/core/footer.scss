@@ -1,0 +1,27 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: $spl-bgcolor-white;
+    padding-top: 1rem;
+    height: $spl-footer-height;
+
+    &__enedis-logo {
+        background-image: url('/new/assets/images/footer-logo-enedis.png');
+        margin-left: 1rem;
+        background-repeat: no-repeat;
+    }
+
+    &__content {
+        color: rgba($spl-textcolor-gray700, 0.54);
+    }
+
+    &__items {
+        font-weight: 600;
+
+        span {
+            cursor: pointer;
+        }
+    }
+}

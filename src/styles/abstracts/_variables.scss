@@ -1,0 +1,134 @@
+@import './mixins';
+
+/** This variables file sets up most important setup variables.It should be modified with caution **/
+
+/* ==========================================================================
+   #COLORs
+   ========================================================================== */
+$spl-color-primary-light : #4D59EF;
+$spl-color-primary : #1421dc;
+$spl-color-primary-dark : #070D4F;
+
+
+$spl-color-secondary: #101014;
+$spl-color-tertiary : #96CD32;
+
+$spl-color-quaternary : #4BC3C3;
+$spl-color-quinary : #41A57D;
+$spl-color-senary : #FFC328;
+$spl-color-septenary : #96CD32;
+$spl-color-octonary : #E10028;
+$spl-color-nonary : #96CD32;
+$spl-color-denary : #96CD32;
+
+
+$spl-color-disabled : #efefef;
+
+$spl-textcolor-gray700 : #60616C;
+
+$spl-textcolor-white: #ffffff;
+
+
+
+$spl-color-validation : $spl-color-quinary;
+$spl-color-alert : $spl-color-senary;
+$spl-color-error : $spl-color-octonary;
+
+
+
+
+/* ==========================================================================
+   #BACKGROUNG COLORs
+   ========================================================================== */
+$spl-bgcolor : #F6F6FE;
+$spl-bgcolor2 : #C4C4C4;
+$spl-bgcolor3 : #f1f2f3;
+
+$spl-bgcolor-white : #ffffff;
+
+$spl-bgcolor-success : #E9F6F1;
+$spl-bgcolor-alert : #FFF6E0;
+$spl-bgcolor-error : #FFE0E6;
+$spl-bgcolor-information : #F6F6FE;
+
+
+
+$spl-bgcolor-menu : #C8CBD0;
+$spl-bgcolor-card : #ffffff;
+$spl-bgcolor-card-gray : #FAFAFA;
+
+$spl-bgcolor-skeleton-lvl1 : #ffffff;
+$spl-bgcolor-skeleton-lvl2 : #f1f2f3;
+$spl-bgcolor-skeleton-lvl3 : #C8CBD0;
+$spl-bgcolor-skeleton-lvl4 : #AEB1B7;
+
+$spl-bordercolor : #D9DFE5;
+
+
+
+/* ==========================================================================
+   #SPACING
+   ========================================================================== */
+/**
+baseline is a line upon which the text rests.
+Aligning baselines to a specific absolute grid establishes a vertical rhythm 
+a pattern that is easier for the human brain to scan, especially useful with a multiple-column content. 
+**/
+
+// Baseline grid lines height.
+// Every spacing metric should be based on this.
+$spl-global-baseline : 0.25rem !default;
+
+// spacing factors
+$spl-global-spacing-unit-factor-tiny : 1 !default;
+$spl-global-spacing-unit-factor-small : 2 !default;
+$spl-global-spacing-unit-factor : 4 !default;
+$spl-global-spacing-unit-factor-large : 8 !default;
+$spl-global-spacing-unit-factor-huge : 16 !default;
+
+// Spacing values are determined based on the project’s global baseline grid.
+$spl-global-spacing-unit : $spl-global-baseline * $spl-global-spacing-unit-factor !default;
+
+
+// typography base 
+$spl-global-font-size : calculateRem(16px) !default;
+$spl-global-line-height : $spl-global-spacing-unit !default;
+
+
+
+/* ==========================================================================
+   #HEADINGS
+   ========================================================================== */
+
+$spl-font-size-h1 : calculateRem(28px) !default;
+$spl-font-size-h2 : calculateRem(26px) !default;
+$spl-font-size-h3 : calculateRem(24px) !default;
+$spl-font-size-h4 : calculateRem(20px) !default;
+
+$spl-font-size-sub-title1 : calculateRem(24px)  !default;
+$spl-font-size-sub-title2 : calculateRem(20px) !default;
+$spl-font-size-sub-title3 : calculateRem(18px) !default;
+
+
+/* ==========================================================================
+   #GLOBAL MEDIA VARS
+   ========================================================================== */
+
+$xs: 23.5em; // 376px @media (max-width: $xs) {}
+$sm: 30em; // (min-width: 480px)
+$md: 62em; // (min-width: 992px)
+$xl: 90em; // (min-width: 1440px)
+
+//- to container
+
+// $col-sm: 540px; // (max-width: 540px)
+// $col-md: 720px; // (max-width: 720px)
+// $col-lg: 960px; // (max-width: 960px)
+// $col-xl: 1140px; // (max-width: 1140px)
+
+/* ==========================================================================
+   footer and header
+   ========================================================================== */
+
+$spl-footer-height : calculateRem(50px);
+$spl-header-height :calculateRem(70px);

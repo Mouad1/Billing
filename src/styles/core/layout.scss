@@ -1,0 +1,94 @@
+.layout {
+  width: 100%;
+  position: relative;
+  @include margin(0, auto, 0, auto);
+
+  @include media("screen", "<minWidth") {
+    @include padding($spl-header-height, 1rem, $spl-footer-height, 1rem);
+    // @import 'responsive/480up';
+  }
+
+  @include media("screen", ">minWidth", "<medWidth") {
+    @include padding($spl-header-height, 1rem, $spl-footer-height, 1rem);
+    max-width: 960px;
+    // @import 'responsive/992up';
+  }
+
+  @include media("screen", ">medWidth", "<maxWidth") {
+    max-width: 1140px;
+    @include padding(2rem, 1rem, $spl-footer-height, 1rem);
+    // @import 'responsive/1440up';
+  }
+
+  @include media("screen",">maxWidth") {
+    max-width: 1240px;
+    @include padding(2rem, 1rem, $spl-footer-height, 1rem);
+  }
+
+    // this is to have a sign-in display like 
+    &--no-max-width{
+      max-width:none;
+      @include padding(0, 0, 0,0);
+  }
+}
+
+.layout__side-bar {
+  min-height: 100vh;
+  background: $spl-bgcolor-white;
+}
+
+
+.layout__content {
+  // local overriding of material icons color
+  .material-icons {
+    color: $spl-color-primary-light;
+  }
+}
+
+
+
+/* ==========================================================================
+   GENERIC MODIFIERS FOR ALL BLOCKS & ELEMENTS
+   ========================================================================== */
+.centered {
+    @include centerElements();
+    text-align: center;
+  }
+
+  .absolut-centered {
+    @include absoluteCenter("both");
+  }
+
+  .clickable{
+      cursor: pointer;
+      //peut etre rajouter un effect hover ?
+  }
+
+  .float-right{  //new class
+    text-align: end;
+  }
+
+  .bordered {
+   @include border();
+  }
+
+  .bordered-discreetly {
+    @include border($width:0);
+  }
+
+  
+  .scroll{
+    scrollbar-width: thin; 
+    scrollbar-color: #4D59EF white;
+    overflow-y: auto;
+    max-height: 335px ;
+    mask-image: linear-gradient(to top, transparent, black),
+    linear-gradient(to left, transparent 8px, black 8px);
+  mask-size: 100% 20000px;
+  mask-position: left bottom;
+}
+
+.scroll:hover{
+    mask-position: left top;
+}
+

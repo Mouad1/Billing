@@ -1,0 +1,17 @@
+.btn {
+  @include text-color(primary, hover);
+
+//   &--login{
+//       width: calculateRem(320px);
+//   }
+
+  &--border-radius--10{
+        border-radius: 10px;
+        border-color: #1421dc;
+  }
+ 
+  // &--secondary {
+
+  // }
+      
+}

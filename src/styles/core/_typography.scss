@@ -1,0 +1,54 @@
+
+@use '@angular/material' as mat;
+
+/* ==========================================================================
+   #customizing typography
+   ========================================================================== */
+
+// Primary font : Enedis
+// @font-face {
+// 	font-family:'Enedis';
+// 	src:	'/src/assets/fonts/Enedis-Thin.woff2' format('woff2'),
+// 			'/src/assets/fonts/Enedis-Thin.woff' format('woff');
+// 	font-weight: 100;
+// 	font-style: normal;
+// }
+
+// Secondary font : Public sans 
+
+@font-face {
+	font-family:'Public Sans';
+	src:	'/assets/fonts/PublicSans-Regular.ttf' format('ttf');
+	font-style: normal;
+}
+
+// @font-face {
+// 	font-family:'PublicSans';
+// 	src:	'/src/assets/fonts/PublicSans-Italic-VariableFont_wght.ttf' format('ttf');
+// 	font-style: italic;
+// }
+
+$app-typography: mat.define-typography-config(
+  $font-family: 'Public Sans'
+);
+@include mat.core($app-typography);
+
+/* ==========================================================================
+   #HEADINGS
+   ========================================================================== */
+
+// h1 {
+//     font-size:  calculateRem($spl-font-size-h1);
+// }
+
+// h2 {
+//     font-size:  calculateRem($spl-font-size-h2);
+// }
+
+// h3 {
+//     font-size:  calculateRem($spl-font-size-h3);
+// }
+
+// h4 {
+//     color : $spl-color-primary;
+// }

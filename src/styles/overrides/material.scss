@@ -1,0 +1,131 @@
+%mat-toolbar {
+  height: 7vh;
+  left: 0px;
+  background-color: #ffffff;
+  font: inherit;
+  position: fixed;
+  bottom: 0;
+}
+
+// Specific component overrides, pieces that are not in line with the general theming
+
+// Handle buttons appropriately, with respect to line-height
+// .mat-raised-button, .mat-stroked-button, .mat-flat-button {
+//     padding: 0 1.15em;
+//     margin: 0 .65em;
+//     min-width: 3em;
+//     line-height: 36.4px;
+//   }
+
+//   .mat-standard-chip {
+//     padding: .5em .85em;
+//     min-height: 2.5em;
+//   }
+
+// .mat-form-field-appearance-outline .mat-form-field-outline {
+//   color: #60616c;
+// }
+.material-icons {
+  // color : $spl-color-primary;
+  font-size: 24px;
+  font-family: "Material Icons", "Material Icons";
+  .mat-badge-content {
+    font-family: "Public Sans", serif;
+  }
+}
+
+.mat-display-1,
+.mat-typography .mat-display-1 {
+  margin-bottom: 1rem;
+}
+
+.mat-h4,
+.mat-subheading-1,
+.mat-typography .mat-h4,
+.mat-typography .mat-subheading-1,
+.mat-typography h4 {
+  margin-bottom: 0;
+}
+
+//table classes (de tests)
+
+table {
+  width: 100%;
+}
+
+.mat-table {
+  box-shadow: none;
+}
+
+.mat-cell {
+  //text-align: center;
+  font-family: "Public Sans", sans-serif;
+  font-weight: 400;
+  color: #60616c;
+}
+
+.mat-header-row {
+  height: 40px !important;
+  background: orange;
+}
+
+.mat-header-cell {
+  color: #070d4f;
+  //text-align: center !important;
+  border-bottom-width: 0px !important;
+}
+
+td {
+  input {
+    width: 60.5px;
+    height: 28px;
+    border: 1px solid #4d59ef;
+    box-sizing: border-box;
+    border-radius: 3px;
+    color: #60616c;
+    margin: 6px;
+  }
+}
+
+.mat-row:nth-child(even) {
+  //bg-color de rows
+  // background-color: #2196f333;
+}
+
+.mat-row:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.mat-form-field-wrapper {
+  background: #ffffff;
+  height: 32px;
+}
+
+// .mat-form-field-appearance-outline .mat-form-field-flex{
+//   height: 53px !important;
+// }
+
+.blue-snackbar {
+  background: #2196f3;
+}
+
+.red-snackbar {
+  background: #f44336;
+}
+
+.mat-expansion-panel {
+  box-shadow: none !important;
+}
+
+.mat-tooltip {
+  white-space: pre-line;
+}
+
+.mat-expansion-panel-body {
+  padding: 0 !important;
+  // margin-right: 50px !important;
+}
+
+.mat-mini-fab:not([class*="mat-elevation-z"]) {
+  box-shadow: none;
+}

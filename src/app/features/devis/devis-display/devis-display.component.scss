@@ -1,0 +1,28 @@
+.invoice {
+  background: #fff;
+  padding: 20px;
+}
+
+.invoice-date,
+.invoice-from,
+.invoice-to {
+  display: table-cell;
+  width: 1%;
+}
+
+.invoice-date .date,
+.invoice-from strong,
+.invoice-to strong {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.invoice-note {
+  color: #999;
+  margin-top: 80px;
+  font-size: 85%;
+}
+
+.object {
+  font: 400 17px / 20px Roboto, "Helvetica Neue", sans-serif;
+}

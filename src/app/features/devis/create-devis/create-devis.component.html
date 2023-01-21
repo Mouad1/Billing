@@ -1,0 +1,131 @@
+<form [formGroup]="createDevisForm" (ngSubmit)="onSubmit(createDevisForm)">
+
+
+    <div fxLayout="row">
+        <mat-form-field appearance="outline" fxFlex="100" class="py4">
+            <mat-label>Objet</mat-label>
+            <input matInput formControlName="subject" required>
+        </mat-form-field>
+    </div>
+
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="space-between stretch">
+        <mat-form-field appearance="outline" fxFlex="45%" class="py2">
+            <mat-label>Date</mat-label>
+            <input matInput formControlName="date" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" fxFlex="45%" class="py2">
+            <mat-label>Lot</mat-label>
+            <input matInput formControlName="lot">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" fxFlex="45%" class="py2">
+            <mat-label>Disponibilité</mat-label>
+            <input matInput formControlName="availability">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" fxFlex="45%" class="py2">
+            <mat-label>Date d'échéance</mat-label>
+            <input matInput formControlName="dueDate">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" fxFlex="100%" class="py2">
+            <mat-label>Détails</mat-label>
+            <textarea matInput formControlName="details" cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+                cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5"></textarea>
+        </mat-form-field>
+    </div>
+
+    <mat-card formGroupName="client">
+        <br />
+        <mat-card-title class="orange">Clients</mat-card-title>
+        <mat-divider></mat-divider>
+        <br />
+        <div fxLayout="row wrap" fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="space-between stretch">
+            <mat-form-field appearance="outline" fxFlex="45%">
+                <mat-label>Client</mat-label>
+                <input matInput formControlName="clientCompanyName" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" fxFlex="45%">
+                <mat-label>Interlocuteur</mat-label>
+                <input matInput formControlName="clientMainContact" required>
+            </mat-form-field>
+
+        </div>
+
+
+    </mat-card>
+
+    <mat-card formArrayName="products">
+        <br />
+        <mat-card-title class="orange">Produits</mat-card-title>
+        <mat-divider></mat-divider>
+        <br />
+        <div *ngFor="let product of _products; let i=index">
+            <mat-divider *ngIf="_products.length > 1 && i > 0"></mat-divider><br />
+
+            <div [formGroupName]="i">
+                <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="4%" fxLayoutAlign="center">
+
+                    <button type="button" mat-mini-fab color="warn" fxFlex="nogrow" *ngIf="_products.length > 1"
+                        (click)="removeProduct(i)">
+                        <mat-icon>remove_circle</mat-icon>
+                    </button>
+
+                    <mat-form-field fxFlex="30%">
+                        <input matInput placeholder="nom du produit" formControlName="prodName" required />
+                        <!-- input field error -->
+                        <!-- <mat-error *ngIf="product.controls.prodName.invalid">
+                      product name is required.
+                    </mat-error> -->
+                    </mat-form-field>
+
+                    <mat-form-field fxFlex="10%" fxFlex.xs="20">
+                        <input matInput placeholder="Quantité" type="number" formControlName="quantity" required />
+                    </mat-form-field>
+
+                    <mat-form-field fxFlex="20%" fxFlex.xs="grow">
+                        <input matInput placeholder="Prix de l'unité" type="number" formControlName="priceHT"
+                            required />
+                    </mat-form-field>
+
+                    <div fxLayout.xs="row">
+                        <mat-form-field>
+                            <input matInput placeholder="Total" formControlName="total" />
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <br />
+        </div>
+
+        <mat-divider></mat-divider>
+        <br />
+
+        <mat-card-actions class="float-right">
+            <button type="button" mat-stroked-button color="primary" (click)="addProduct()">
+                <mat-icon>add box</mat-icon>
+                Add new unit
+            </button>
+            <button type="button" mat-stroked-button color="primary" (click)="clearAllProducts()">
+                <mat-icon>remove_circle</mat-icon>
+                Clear all
+            </button>
+        </mat-card-actions>
+    </mat-card>
+
+    <br /> <br />
+
+
+    <mat-card>
+        Prix Total : {{ totalSum | number:'1.2-2'}} DH
+    </mat-card>
+    <br /><br />
+    <div class="float-right">
+        <button mat-stroked-button type="submit">
+            <mat-icon>launch</mat-icon>
+        </button>
+    </div>
+
+</form>
