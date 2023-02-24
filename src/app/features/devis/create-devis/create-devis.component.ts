@@ -54,6 +54,8 @@ export class CreateDevisComponent implements OnInit {
         clientCompanyName: ['Renault', Validators.required],
         clientMainContact: ['Mohamed', Validators.required],
       }),
+      coef: ['1.4', Validators.required],
+      taux_mo: ['90', Validators.required],
       products: this.formBuilder.array([this.getProduct()]),
     });
 
@@ -61,9 +63,11 @@ export class CreateDevisComponent implements OnInit {
     this.createDevisFormChanges$ =
       this.createDevisForm.controls['products'].valueChanges;
     // subscribe to the stream so listen to changes on units
-    this.createDevisFormChanges$.subscribe((prods: Array<Product>) =>
-      this.updateTotalProductPrice(prods)
-    );
+    this.createDevisFormChanges$.subscribe((prods: Array<Product>) => {
+      console.log(prods);
+      // this.updateTotalProductPrice(prods);
+      this.calculatePrixUnitaire(prods);
+    });
   }
 
   onSubmit(form: FormGroup) {
@@ -79,7 +83,10 @@ export class CreateDevisComponent implements OnInit {
       prodName: ['prod1', Validators.required],
       quantity: ['11', Validators.required],
       // unit: [''],
-      priceHT: ['1000', Validators.required],
+      cout_unit: ['1000', Validators.required],
+      mo: ['10', Validators.required],
+      ddo: ['1', Validators.required],
+      prix_unitaire: [{ value: '', disabled: true }],
       total: [{ value: '', disabled: true }],
     });
   }
@@ -116,7 +123,7 @@ export class CreateDevisComponent implements OnInit {
     // before recount total price need to be reset.
     this.totalSum = 0;
     for (let i in products) {
-      let totalProductPrice = products[i].quantity * products[i].priceHT;
+      let totalProductPrice = products[i].quantity * products[i].cout_unit;
       // now format total price with angular currency pipe
       // let totalProductPriceFormatted = this.currencyPipe.transform(
       //   totalProductPrice,
@@ -132,6 +139,26 @@ export class CreateDevisComponent implements OnInit {
       // update total price for all units
       this.totalSum += totalProductPrice;
     }
+  }
+
+  calculatePrixUnitaire(products: Array<Product>) {
+    console.log(products);
+    const productsControl = <FormArray>(
+      this.createDevisForm.controls['products']
+    );
+    let coef = this.createDevisForm.controls['coef'].value;
+    let tauxMO = this.createDevisForm.controls['taux_mo'].value;
+    for (let i in products) {
+      let prixU =
+        coef *
+        (products[i].cout_unit * (1 + products[i].ddo) +
+          products[i].mo * tauxMO);
+      productsControl.at(+i).get('prix_unitaire')!.setValue(prixU, {
+        onlySelf: true,
+        emitEvent: false,
+      });
+    }
+    // return
   }
 }
 function substr(arg0: any, arg1: number, arg2: number): any {

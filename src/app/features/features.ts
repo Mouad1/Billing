@@ -30,7 +30,9 @@ export interface Product {
   prodName: string;
   quantity: number;
   unit: string;
-  priceHT: number;
+  cout_unit: number;
+  ddo: number;
+  mo: number;
   total: number;
   stock?: number;
 }

@@ -34,6 +34,7 @@
             <textarea matInput formControlName="details" cdkTextareaAutosize #autosize="cdkTextareaAutosize"
                 cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5"></textarea>
         </mat-form-field>
+
     </div>
 
     <mat-card formGroupName="client">
@@ -51,54 +52,98 @@
                 <mat-label>Interlocuteur</mat-label>
                 <input matInput formControlName="clientMainContact" required>
             </mat-form-field>
-
         </div>
-
-
     </mat-card>
+
+    <mat-card>
+        <mat-form-field appearance="outline" fxFlex.xs="grow" fxFlex="50">
+            <mat-label>Coef</mat-label>
+            <input matInput placeholder="Coef." type="number" formControlName="coef" required />
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline" fxFlex.xs="grow" fxFlex="50">
+            <mat-label>Taux M.O.</mat-label>
+            <input matInput placeholder="Taux M.O." type="number" formControlName="taux_mo" required />
+        </mat-form-field>
+    </mat-card>
+
 
     <mat-card formArrayName="products">
         <br />
         <mat-card-title class="orange">Produits</mat-card-title>
         <mat-divider></mat-divider>
         <br />
-        <div *ngFor="let product of _products; let i=index">
-            <mat-divider *ngIf="_products.length > 1 && i > 0"></mat-divider><br />
 
-            <div [formGroupName]="i">
-                <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="4%" fxLayoutAlign="center">
+        <div fxLayout="column wrap" fxLayoutAlign="space-between stretch">
+            <div *ngFor="let product of _products; let i=index" fxFlex="75%" class="bordered">
+                <br />
+                <br />
+                <!-- <mat-divider *ngIf="_products.length > 1 && i > 0"></mat-divider> -->
+                <div [formGroupName]="i">
+                    <div fxLayout="column wrap" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="4%"
+                        fxLayoutAlign="center stretch">
 
-                    <button type="button" mat-mini-fab color="warn" fxFlex="nogrow" *ngIf="_products.length > 1"
-                        (click)="removeProduct(i)">
-                        <mat-icon>remove_circle</mat-icon>
-                    </button>
+                        <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center">
 
-                    <mat-form-field fxFlex="30%">
-                        <input matInput placeholder="nom du produit" formControlName="prodName" required />
-                        <!-- input field error -->
-                        <!-- <mat-error *ngIf="product.controls.prodName.invalid">
-                      product name is required.
-                    </mat-error> -->
-                    </mat-form-field>
+                            <mat-form-field appearance="outline" fxFlex.xs="grow">
+                                <mat-label>Cout unitaire</mat-label>
+                                <input matInput placeholder="cout de l'unité " type="number" formControlName="cout_unit"
+                                    required />
+                            </mat-form-field>
 
-                    <mat-form-field fxFlex="10%" fxFlex.xs="20">
-                        <input matInput placeholder="Quantité" type="number" formControlName="quantity" required />
-                    </mat-form-field>
+                            <mat-form-field appearance="outline" fxFlex.xs="grow">
+                                <mat-label>% DD</mat-label>
+                                <input matInput placeholder="DD%" type="number" formControlName="ddo" required />
+                            </mat-form-field>
 
-                    <mat-form-field fxFlex="20%" fxFlex.xs="grow">
-                        <input matInput placeholder="Prix de l'unité" type="number" formControlName="priceHT"
-                            required />
-                    </mat-form-field>
+                            <mat-form-field appearance="outline" fxFlex.xs="grow">
+                                <mat-label>M.O.</mat-label>
+                                <input matInput placeholder="M.O." type="number" formControlName="mo" required />
+                            </mat-form-field>
 
-                    <div fxLayout.xs="row">
-                        <mat-form-field>
-                            <input matInput placeholder="Total" formControlName="total" />
-                        </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <input matInput placeholder="nom du produit" formControlName="prodName" required />
+
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" fxFlex.xs="20">
+                                <input matInput placeholder="Quantité" type="number" formControlName="quantity"
+                                    required />
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" fxFlex.xs="grow">
+                                <input matInput placeholder="Prix de l'unité" type="number"
+                                    formControlName="prix_unitaire" required />
+                            </mat-form-field>
+
+                            <button type="button" mat-mini-fab color="warn" fxFlex="nogrow" *ngIf="_products.length > 1"
+                                (click)="removeProduct(i)">
+                                <mat-icon>remove_circle</mat-icon>
+                            </button>
+
+
+                        </div>
+
                     </div>
+                    <br><br>
+
+
+
+
+                    <!-- <div fxFlex="20%" fxLayout.xs="row">
+                            <mat-form-field>
+                                <input matInput placeholder="Total" formControlName="total" />
+                            </mat-form-field>
+                        </div> -->
+
+
                 </div>
+                <br />
             </div>
-            <br />
+
         </div>
+
+
 
         <mat-divider></mat-divider>
         <br />

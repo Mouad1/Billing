@@ -15,16 +15,17 @@ export class DevisDisplayComponent implements OnInit {
     height: 29.7, //cm
   };
   tableDataColumns = [
-    { name: 'Nom produit', dataKey: 'nomProd' },
-    { name: 'Quantité', dataKey: 'Q' },
-    { name: 'Prix unitaire', dataKey: 'PU' },
+    { name: 'Désignation', dataKey: 'prodName' },
+    { name: 'QTE.', dataKey: 'quantity' },
+    { name: 'Prix unitaire', dataKey: 'priceHT' },
     { name: 'Total', dataKey: 'tot' },
   ];
-  tableData = [
-    { nomProd: 'Mouad', Q: 29, PU: 120 },
-    { nomProd: 'boutaina', Q: 26, PU: 120 },
-    { nomProd: 'Jojo', Q: 1, PU: 120 },
-  ];
+  tableData: any;
+  //  = [
+  //   { nomProd: 'produitA', Q: 29, PU: 120, tot: 29 * 120 },
+  //   { nomProd: 'ProduitB', Q: 26, PU: 120, tot: 26 * 120 },
+  //   { nomProd: 'ProduitS', Q: 1, PU: 120, tot: 1 * 120 },
+  // ];
   constructor(private devisService: DevisService) {}
 
   ngOnInit(): void {
@@ -32,10 +33,13 @@ export class DevisDisplayComponent implements OnInit {
       next: (data: any) => {
         this.printableData = data;
         console.log(data);
+        this.tableData = data.products;
         // console.log(new Date().getTime());
         // console.log(Date.now());
       },
     });
     // console.log('display: ', this.printData);
   }
+
+  // calculerPrixUnitHT(prix) {}
 }
